@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="test">
+    <script>
+        let input = document.getElementById('test')
+        input.oninput = debounce(handle, 300)
+        function handle(e) {
+            console.log(this.value, e)
+        }
+        /** 
+         * 防抖函数
+         * @param { fn } handle 回调函数
+         * @param { Number } delay 延迟时间
+        */
+        function debounce(handle, delay) {
+            var timer = null
+            return function() {
+                var _this = this
+                var _arg = arguments // 谁调用次方法,this就指向谁
+                clearTimeout(timer)
+                timer = setTimeout(function() {
+                    handle.apply(_this, _arg)
+                }, delay)
+            }
+        }
+    </script>
+</body>
+</html>
