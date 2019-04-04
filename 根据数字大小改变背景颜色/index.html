@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>根据表格数值大小改变背景颜色深浅-jq22.com</title>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style>
+table td,table th {
+	border:1px solid #ddd;
+	text-align:center;
+	height:40px;
+}
+table {
+	border-collapse:collapse;
+	width:100%;
+}
+</style>
+</head>
+<body>
+ <div class="raTime">2018-9-28~2018-9-28</div>
+    <div class="raTab">
+        <h4 class="raTitle">新增会员留存</h4>
+        <ul class="nav nav-pills fr taTabSel">
+            <li role="presentation" class="active day">
+                <a>日</a>
+            </li>
+            <li role="presentation" class="week">
+                <a>周</a>
+            </li>
+            <li role="presentation" class="month">
+                <a>月</a>
+            </li>
+        </ul>
+        <table class="raTable">
+            <tbody><tr>
+                <th>日期</th>
+                <th>新用户数</th>
+                <th>第2<span class="raTop">天</span></th>
+                <th>第3<span class="raTop">天</span></th>
+                <th>第4<span class="raTop">天</span></th>
+                <th>第5<span class="raTop">天</span></th>
+                <th>第6<span class="raTop">天</span></th>
+                <th>第7<span class="raTop">天</span></th>
+                <th>第30<span class="raTop">天</span></th>
+                <th>第90<span class="raTop">天</span></th>
+            </tr>
+            <tr>
+                <td>2018-9-1</td>
+                <td>988</td>
+                <td>2 | 33%</td>
+                <td>3 | 70%</td>
+                <td>4 | 95%</td>
+                <td>3 | 39%</td>
+                <td>21 | 50%</td>
+                <td>40 | 35%</td>
+                <td>3 | 59%</td>
+                <td>21 | 70%</td>
+            </tr>
+            <tr>
+                <td>2018-9-1</td>
+                <td>654</td>
+                <td>2 | 19%</td>
+                <td>3 | 60%</td>
+                <td>4 | 25%</td>
+                <td>3 | 10%</td>
+                <td>21 | 70%</td>
+                <td>40 | 15%</td>
+                <td>3 | 22%</td>
+                <td>21 | 60%</td>
+            </tr>
+        </tbody></table>
+    </div>
+
+<script>
+$(document).ready(function() {
+    $(".raTable tr").each(function() {
+        $(this).children("td").each(function(i) {
+            var match1 = $(this).text().match(/(?<=\|).*(?=%)/); //匹配以|开头并且以%结尾的数值
+            if (match1 != null) {
+                $(this).css("background", "rgba(0,0,255," + match1[0] / 100 + ")");
+            } 
+        });
+    });
+});
+</script>
+
+</body>
+</html>
