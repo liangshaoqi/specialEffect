@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音频可视化</title>
+  <style>
+    html, body {
+      background-color: rgb(30,30,30);
+      height: 100%;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    h1 {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>将该整个文件放到ngnix中或者引入音乐文件src服务器远程地址,不然会跨域</h1>
+  <canvas id="canvas"></canvas>
+  <audio id="audio" controls autoplay src="./music.mp3" style="width: 300px;height: 40px;"></audio>
+  <button id="btn">是否对称</button>
+  <script src="./index.js">
+
+  </script>
+</body>
+</html>
